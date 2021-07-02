@@ -7,8 +7,8 @@ const ChefController = require('../app/controllers/chefs')
 const recipes = require("./recipes")
 const chefs = require("./chefs")
 
-routes.use('/Admin/Receitas', recipes)
-routes.use('/Admin/Chefs', chefs)
+routes.use('/admin/Receitas', recipes)
+routes.use('/admin/Chefs', chefs)
 
 //website - visit
 routes.get("/", RecipesController.home)
