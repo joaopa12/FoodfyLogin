@@ -121,14 +121,14 @@ module.exports = {
 
         if (recipes == 0) {
             const pagination = { page }
-            return res.render("Site/search", { chefsOptions, recipes, pagination, filter })
+            return res.render("Site/search/index", { chefsOptions, recipes, pagination, filter })
 
         } else {
             const pagination = {
                 total: Math.ceil(recipes[0].total / limit),
                 page,
             }
-            return res.render("Site/search", { chefsOptions, recipes:EachRecipe, pagination, filter })
+            return res.render("Site/search/index", { chefsOptions, recipes:EachRecipe, pagination, filter })
         }
 
     },
@@ -168,6 +168,6 @@ module.exports = {
  
         const EachChef = await Promise.all(chefsPromise)
  
-        return res.render("Site/chefs", { Chefs: EachChef })
+        return res.render("Site/chefs/index", { Chefs: EachChef })
     }
 }

@@ -1,8 +1,7 @@
 const express = require('express')
 const routes = express.Router()
 
-const RecipesController = require('../app/controllers/RecipesController')
-const ChefController = require('../app/controllers/ChefsController')
+const SiteController = require('../app/controllers/SiteController')
 
 const recipes = require("./recipes")
 const chefs = require("./chefs")
@@ -11,11 +10,11 @@ routes.use('/admin/Receitas', recipes)
 routes.use('/admin/Chefs', chefs)
 
 //website - visit
-routes.get("/", RecipesController.home)
-routes.get("/Receitas", RecipesController.recipes)
-routes.get("/Sobre", RecipesController.about)
-routes.get("/Receitas/:id", RecipesController.recipe)
-routes.get("/Resultados", RecipesController.results)
-routes.get("/Chefs", ChefController.chefs)
+routes.get("/", SiteController.home)
+routes.get("/Receitas", SiteController.recipes)
+routes.get("/Sobre", SiteController.about)
+routes.get("/Receitas/:id", SiteController.recipe)
+routes.get("/Resultados", SiteController.results)
+routes.get("/Chefs", SiteController.chefs)
 
 module.exports = routes
