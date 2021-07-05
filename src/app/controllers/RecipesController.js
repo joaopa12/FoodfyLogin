@@ -36,7 +36,7 @@ module.exports = {
 
         const EachRecipe = await Promise.all(recipesPromise)
 
-        return res.render("home", { chefsOptions, recipes:EachRecipe , filter })
+        return res.render("site/home/home", { chefsOptions, recipes:EachRecipe , filter })
     },
     async recipes(req, res) {
         let { filter, page, limit } = req.query

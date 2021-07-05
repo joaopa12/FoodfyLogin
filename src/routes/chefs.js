@@ -1,7 +1,7 @@
 const express = require('express')
 const routes = express.Router()
 
-const chef = require('../app/controllers/chefs')
+const chef = require('../app/controllers/ChefsController')
 const multer = require('../app/middlewares/multer')
 
 routes.get("/", chef.chefsAdmin)
