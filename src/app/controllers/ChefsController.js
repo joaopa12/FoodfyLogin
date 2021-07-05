@@ -3,26 +3,6 @@ const File = require("../models/file")
 const Recipe = require("../models/recipe")
 
 module.exports = {
-    async chefs(req, res) {
-        let results = await Chef.all()
-        const Chefs = results.rows
-
-        const chefsPromise = Chefs.map(async chef => {
-            results = await Chef.Getfiles(chef.id)
-
-            const files = results.rows.map(file => ({
-                ...file,
-                src: `${req.protocol}://${req.headers.host}${file.path.replace("public", "")}`
-            }))
-
-            chef.image = files[0]
-            return chef
-        })
- 
-        const EachChef = await Promise.all(chefsPromise)
- 
-        return res.render("chef", { Chefs: EachChef })
-    },
     async chefsAdmin(req, res) {
         let results = await Chef.all()
         const Chefs = results.rows
