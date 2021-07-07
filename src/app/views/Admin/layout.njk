@@ -2,25 +2,17 @@
 <html>
     <head>
         {% block head %}
-            <link rel="stylesheet" href="/styles/admin.css">
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
-            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         {% endblock %}
+
+        {% include 'Admin/parts/styles.njk'%}
 
     </head>
     <body>
-        <header>
-            <div class="logo">
-                <a href="/admin/Receitas/"><img src="/assets/logod.png" alt=""></a>
-                <div class="linksadmin">
-                    <a href="/admin/Receitas">Receitas</a>
-                    <a href="/admin/Chefs">Chefs</a>
-                </div>
-            </div>
+        {% include 'Admin/parts/header.njk'%}
 
-        </header>
         {% block content %}
-            {% endblock%}
-            <script src="/scripts/script_header_admin.js"></script>
-        </body>
-    </html>
+        {% endblock%}
+
+        {% include 'Admin/parts/scripts.njk'%}
+    </body>
+</html>
