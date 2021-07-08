@@ -25,14 +25,14 @@ module.exports = {
 
         const EachRecipe = await Promise.all(recipesPromise)
 
-        return res.render("Admin/index", { chefsOptions, recipes: EachRecipe })
+        return res.render("Admin/recipes/index", { chefsOptions, recipes: EachRecipe })
     },
     async create(req, res) {
 
         let results = await Recipe.chefsOption()
         const chefsOptions = results.rows
 
-        return res.render("Admin/create", { chefsOptions })
+        return res.render("Admin/recipes/create", { chefsOptions })
     },
     async recipe_admin(req, res) {
         let results = await Recipe.find(req.params.id)
@@ -48,7 +48,7 @@ module.exports = {
             src: `${req.protocol}://${req.headers.host}${file.path.replace("public", "")}`
         }))
 
-        return res.render("Admin/recipe", { chefsOptions, recipe, files })
+        return res.render("Admin/recipes/recipe", { chefsOptions, recipe, files })
     },
     async recipe_admin_edit(req, res) {
         const { id } = req.params
@@ -68,7 +68,7 @@ module.exports = {
 
         if (!recipe) return res.send("Receita não encontrada")
 
-        return res.render("Admin/edit", { chefsOptions, recipe, files })
+        return res.render("Admin/recipes/edit", { chefsOptions, recipe, files })
     },
     async post(req, res) {
         const keys = Object.keys(req.body)

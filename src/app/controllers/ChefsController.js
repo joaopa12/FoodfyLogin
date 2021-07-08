@@ -21,7 +21,7 @@ module.exports = {
  
         const EachChef = await Promise.all(chefsPromise)
 
-        return res.render("Admin/chefs", { Chefs: EachChef })
+        return res.render("Admin/chefs/chefs", { Chefs: EachChef })
     },
     async chefAdmin(req, res) {
 
@@ -56,7 +56,7 @@ module.exports = {
             src: `${req.protocol}://${req.headers.host}${file.path.replace("public", "")}`
         }))
 
-        return res.render('Admin/chef', { Chef: chef, chef_recipes, recipes: EachRecipe, files })
+        return res.render('Admin/chefs/chef', { Chef: chef, chef_recipes, recipes: EachRecipe, files })
     },
     async chefAdmin_edit(req, res) {
         const { id } = req.params
@@ -71,10 +71,10 @@ module.exports = {
             src: `${req.protocol}://${req.headers.host}${file.path.replace("public", "")}`
         }))
 
-        return res.render('Admin/editchef', { Chef:chef , files })
+        return res.render('Admin/chefs/editchef', { Chef:chef , files })
     },
     chefsCreate(req, res) {
-        return res.render('Admin/createChef')
+        return res.render('Admin/chefs/createChef')
     },
     async post(req, res) {
         const keys = Object.keys(req.body)
