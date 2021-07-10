@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+        {% endblock %}
+
+        {% include 'Admin/parts/styles.njk'%}
+
+    </head>
+    <body>
+        
+
+        {% block content %}
+        {% endblock%}
+
+        {% include 'Admin/parts/scripts.njk'%}
+    </body>
+</html>
