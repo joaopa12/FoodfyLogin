@@ -2,7 +2,7 @@ CREATE TABLE "chefs" (
   "id" SERIAL PRIMARY KEY,
   "name" text NOT NULL,
   "file_id" int UNIQUE,
-  "created_at" timestamp
+  "created_at" timestamp DEFAULT(now())
 );
 
 CREATE TABLE "recipes" (
@@ -13,7 +13,7 @@ CREATE TABLE "recipes" (
   "ingredients" text[],
   "preparation" text[],
   "information" text,
-  "created_at" timestamp
+  "created_at" timestamp DEFAULT(now())
 );
 
 CREATE TABLE "files" (
@@ -36,8 +36,8 @@ CREATE TABLE "users" (
   "reset_token" text,
   "reset_token_expires" text,
   "is_admin" boolean,
-  "created_at" timestamp,
-  "updated_at" timestamp
+  "created_at" timestamp DEFAULT(now()),
+  "updated_at" timestamp DEFAULT(now())
 );
 
 ALTER TABLE "recipe_files" ADD FOREIGN KEY ("recipe_id") REFERENCES "recipes" ("id");
