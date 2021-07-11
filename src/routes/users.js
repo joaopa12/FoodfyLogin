@@ -1,6 +1,11 @@
 const express = require('express')
 const routes = express.Router()
 
+const UserController = require('../app/controllers/UserController')
+const UserValidator = require('../app/validators/user')
+
+
+
 // Rotas de perfil de um usuário logado
 routes.get('/admin/profile', ProfileController.index) // Mostrar o formulário com dados do usuário logado
 routes.put('/admin/profile', ProfileController.put)// Editar o usuário logado
