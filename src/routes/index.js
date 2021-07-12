@@ -5,9 +5,11 @@ const SiteController = require('../app/controllers/SiteController')
 
 const recipes = require("./recipes")
 const chefs = require("./chefs")
+const users = require('./users')
 
 routes.use('/admin/Receitas', recipes)
 routes.use('/admin/Chefs', chefs)
+routes.use('/admin/Users', users)
 
 //website - visit
 routes.get("/", SiteController.home)
