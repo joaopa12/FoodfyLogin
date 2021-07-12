@@ -551,3 +551,14 @@ button[type="submit"] a{
 .gallery-preview img.active{
     opacity: 1;
 }
+
+/*session*/
+
+.logoSession {
+    animation:AnimaçãoUp 1000ms;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    padding: 35px;
+    margin-bottom: 100px;
+}
