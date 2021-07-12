@@ -9,7 +9,7 @@ const users = require('./users')
 
 routes.use('/admin/Receitas', recipes)
 routes.use('/admin/Chefs', chefs)
-routes.use('/admin/Users', users)
+routes.use('/admin/users', users)
 
 //website - visit
 routes.get("/", SiteController.home)
