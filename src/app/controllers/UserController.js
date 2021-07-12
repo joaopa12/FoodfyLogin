@@ -1,5 +1,5 @@
 module.exports = {
     teste(req, res){
-        return res.render("Admin/session/password-reset")
+        return res.render("Admin/session/forgot-password")
     }
 }
