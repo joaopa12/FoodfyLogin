@@ -562,3 +562,52 @@ button[type="submit"] a{
     padding: 35px;
     margin-bottom: 100px;
 }
+
+.session_content{
+    animation:AnimaçãoUp 1000ms;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+.session_header{
+    margin-bottom: 35px;
+}
+.session_header p{
+    font-family: 'Roboto', sans-serif; 
+    font-size: 24px;
+    color: #111111;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.session_form{
+    width: 500px;
+}
+
+.session_buttons{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.session_buttons a{
+    font-size: 15px;
+    color: #969696;
+    text-decoration: none;
+
+}
+
+.session_buttons button[type="submit"]{
+    background-color: #6558C3 ;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 9px 35px;
+    text-decoration: none;
+    font-family: 'Roboto-Bold', sans-serif;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
