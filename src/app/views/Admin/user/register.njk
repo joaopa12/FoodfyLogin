@@ -1,1 +1,33 @@
 {% extends "Admin/layout.njk" %}
+{% block content %}
+    <div class="create_content">
+        <form action="/admin/Chefs" method="post" enctype="multipart/form-data">
+            <div class="create_header">
+                <p>Criando Chef</p>
+                <div class="buttons_create_user">
+                    <button type="submit">Salvar</button>
+                    <button type="submit">Cancelar</button>
+                </div>
+            </div>
+            <div class="user fields">
+                <div class="item">
+                    <p>Nome</p>
+                    <div>
+                        <input type="text" name="name" value="">
+                    </div>
+                </div>
+                <div class="item">
+                    <p>Email</p>
+                    <div>
+                        <input type="text" name="name" value=""></div>
+                    </div>
+                </div>
+                <div class="item">
+                     <div>
+                        <input type="radio" name="name" value="">
+                    </div>
+                    <p>Administrador</p>
+                </div>
+            </form>
+        </div>
+    {% endblock %}
