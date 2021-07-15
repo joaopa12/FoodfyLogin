@@ -211,10 +211,11 @@ button[type="submit"] a{
     
 }
 .fields .item p{
+    color: #111111;
     font-size: 16px;
-    font-family: 'Roboto-Bold', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     
 }
 /* edit */
