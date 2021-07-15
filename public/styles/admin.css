@@ -623,3 +623,7 @@ button[type="submit"] a{
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
 }
+
+.user.fields .item{
+    margin-bottom: 0;
+}
