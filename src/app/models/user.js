@@ -2,7 +2,7 @@ const db = require('../../config/db')
 const { hash } = require('bcryptjs')
 
 function createPassword(){
-    const password = Math.random().toString(10)
+    const password = Math.random().toString(36).substr(2)
     return password
 }
 
@@ -14,7 +14,8 @@ module.exports = {
                    name,
                    email,
                    is_admin,
-              ) VALUES ($1, $2, $3)
+                   password
+              ) VALUES ($1, $2, $3, $4)
               RETURNING id
               ` 
 
