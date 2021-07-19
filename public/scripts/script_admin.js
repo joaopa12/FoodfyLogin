@@ -13,7 +13,7 @@ button.addEventListener("click", function (){
 
     New_field.children[0].value = "";
     ingredients.appendChild(New_field);
-}
+} 
 )
 button_preparation.addEventListener("click", function (){
     const fields_preparations = document.querySelectorAll(".preparation")
@@ -27,3 +27,4 @@ button_preparation.addEventListener("click", function (){
     preparations.appendChild(New_field_preparation);
 }
 )
+
