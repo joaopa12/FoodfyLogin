@@ -1,0 +1,19 @@
+/* validate errors */
+@keyframes hidemessage {
+    to{
+        opacity: 0;
+    }
+}
+.item div .error{
+    background-color: #DC4747;
+    color: white;
+    padding:5px;
+    width: 455px;
+    border-radius: 4px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+
+    animation: hidemessage 500ms 1s ease-out forwards;
+    
+}
