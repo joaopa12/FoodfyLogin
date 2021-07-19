@@ -1,1 +1,27 @@
 {% extends "Admin/layout.njk" %}
+{% block content %}
+    <div class="global">
+        <div class="chefs">
+            <div class="chefs_title">
+                <p>Usuários</p>
+                <a class="button" href="/admin/users/register">Novo</a>
+            </div>
+            <div class="users">
+            {% for user in users %}                
+                <div class="user_card">
+                    <div class="user_name">
+                        <p>{{user.name}}</p>
+                    </div>
+                    <div class="user_email">
+                        <p>{{user.email}}</p>
+                    </div>
+                    <div class="users_commands">
+                        <a href="/admin/Chefs/{{ Chef.id }}">Editar</a>
+                        <a href="/admin/Chefs/{{ Chef.id }}">Remove</a>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

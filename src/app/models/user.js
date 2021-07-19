@@ -7,6 +7,9 @@ function createPassword(){
 }
 
 module.exports = {
+       async all(){
+           return db.query(`SELECT * FROM users`)
+       },
        async create(data){
            try{
               const query = `

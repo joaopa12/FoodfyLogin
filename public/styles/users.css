@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap');
+
+.users{
+    margin-top: 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+    
+}
+
+.user_name p{
+    font-size: 18px;
+    font-weight: 600;
+    color: #111111;
+    margin-bottom: 4px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.user_email p{
+    font-size: 14px;
+    color: #777777;
+    margin-bottom: 16px;
+}
+
+.users_commands a{
+    margin-right: 16px;
+    color: #6558C3;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.users_commands a:last-child{
+    color: #DC4747;
+}
