@@ -13,10 +13,9 @@ routes.get('/register', UserController.registerForm)
 routes.post('/register', UserController.post)
 
 
-
-
 // Rotas que o administrador irá acessar para gerenciar usuários
 routes.get('/', UserController.index)
+routes.get("/:id", UserController.edit)
 //routes.get('/admin/users', UserController.list) // Mostrar a lista de usuários cadastrados
 //routes.post('/admin/users', UserController.post) // Cadastrar um usuário
 //routes.get('/admin/users/create', UserController.create) // Mostrar o formulário de criação de um usuário

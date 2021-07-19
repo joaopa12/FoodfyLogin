@@ -1,6 +1,7 @@
 const db = require('../../config/db')
 const { hash } = require('bcryptjs')
 
+
 function createPassword(){
     const password = Math.random().toString(36).substr(2)
     return password
@@ -37,5 +38,8 @@ module.exports = {
            }catch(err){
               console.error(err)
            }
+       },
+       async find(id){
+           return db.query(`SELECT users.* FROM users WHERE id = $1`, [id])
        }
 }
