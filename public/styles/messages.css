@@ -1,8 +1,18 @@
 /* validate errors */
 @keyframes hidemessage {
-    to{
-        opacity: 0;
+    0%{
+        opacity:0;
     }
+    25%{
+        opacity:1;
+    }
+    90%{
+        opacity:1;
+    }
+    100%{
+        opacity:0;
+    }
+    
 }
 .item div .error{
     background-color: #DC4747;
@@ -14,6 +24,6 @@
     display: flex;
     justify-content: center;
 
-    animation: hidemessage 500ms 1s ease-out forwards;
+    animation: hidemessage 2s ease-out forwards;
     
 }
