@@ -23,6 +23,11 @@ module.exports = {
 
         return res.redirect('/admin/users')
     },
+    async put(req,res){
+        await User.update(req.body)
+
+        return res.redirect('/admin/users')
+    },
     async delete(req,res){
         const { id } = req.body
 
