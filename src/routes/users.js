@@ -12,9 +12,9 @@ const UserValidator = require('../app/validators/user')
 routes.get('/register', UserController.registerForm)
 routes.post('/register', UserController.post)
 
-
 // Rotas que o administrador irá acessar para gerenciar usuários
-routes.get('/', UserController.index)
+routes.get('/', UserController.list)
+routes.get("/:id", UserController.show)
 routes.get("/:id/edit", UserController.edit)
 routes.put('/', UserController.put)
 routes.delete("/", UserController.delete)

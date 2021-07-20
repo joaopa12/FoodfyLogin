@@ -1,7 +1,7 @@
 const User = require('../models/user')
 
 module.exports = {
-    async index(req, res){
+    async list(req, res){
         let results = await User.all()
         const users = results.rows
 
@@ -18,10 +18,18 @@ module.exports = {
     registerForm(req, res){
         return res.render("Admin/user/register.njk")
     },
-    async post(req,res){
-        await User.create(req.body)
+    async show(req, res){
+        const { id } = req.params
 
-        return res.redirect('/admin/users')
+        let results = await User.find(id)
+        const user = results.rows[0]
+
+        return res.render('Admin/user/show.njk',{ user })
+    },
+    async post(req,res){
+        const userId = await User.create(req.body)
+        
+        return res.redirect(`/admin/users/${userId}`)
     },
     async put(req,res){
         await User.update(req.body)
