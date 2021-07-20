@@ -2,23 +2,19 @@
 {% block content %}
     <div class="create_content">
         <div class="user_content">
-
-        
-        <form action="/admin/users/register" method="post">
-            <div class="create_header">
-                <p>Atualizar Usuário</p>
-                <div class="buttons_create_user">
-                    <button type="submit">Salvar</button>
+            <form action="/admin/users/register" method="post">
+                <div class="create_header">
+                    <p>Atualizar Usuário</p>
+                    <div class="buttons_create_user">
+                        <button type="submit">Salvar</button>
+                    </div>
                 </div>
-            </div>
-            {% include 'Admin/user/fields.njk' %}
-        </form>
-            <form action="/admin/users?_method=DELETE" method="POST">
-            <input type="hidden" name="id" value="{{ user.id }}">
-                <button type="delete">Deletar</button>
+                {% include 'Admin/user/fields.njk' %}
             </form>
-
-            
+                <form action="/admin/users?_method=DELETE" method="POST">
+                <input type="hidden" name="id" value="{{ user.id }}">
+                    <button type="delete">Deletar</button>
+                </form>
             </div>
-    </div>
+        </div>
     {% endblock %}

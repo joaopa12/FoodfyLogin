@@ -55,9 +55,20 @@ button[type="delete"]{
     position: absolute;
     top: 0;
     right: 165px;
-    
 }
 
 .user_content{
     position: relative;
+}
+
+.command_cancel{
+    background-color: #8A8A8A ;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 8px 48px;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-left: 16px;
 }
