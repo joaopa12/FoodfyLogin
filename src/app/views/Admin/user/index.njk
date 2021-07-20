@@ -16,8 +16,11 @@
                         <p>{{user.email}}</p>
                     </div>
                     <div class="users_commands">
-                        <a href="/admin/users/{{ user.id }}">Editar</a>
-                        <a href="/admin/users/{{ user.id }}">Remove</a>
+                        <a href="/admin/users/{{ user.id }}">Editar</a>  
+                         <form action="/admin/users?_method=DELETE" method="POST">
+                               <input type="hidden" name="id" value="{{ user.id }}">
+                               <button class="command_delete">Remover</button>
+                         </form>
                     </div>
                 </div>
             {% endfor %}

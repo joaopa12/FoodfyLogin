@@ -22,6 +22,10 @@
     margin-bottom: 16px;
 }
 
+.users_commands{
+    display: flex;
+    align-items: center;
+}
 .users_commands a{
     margin-right: 16px;
     color: #6558C3;
@@ -30,6 +34,11 @@
     font-weight: 600;
 }
 
-.users_commands a:last-child{
-    color: #DC4747;
+form button.command_delete{
+    color: #F55A5A;
+    background-color: white;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
 }

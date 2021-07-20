@@ -22,5 +22,12 @@ module.exports = {
         await User.create(req.body)
 
         return res.redirect('/admin/users')
+    },
+    async delete(req,res){
+        const { id } = req.body
+
+        User.delete(id)
+
+        return res.redirect('/admin/users')
     }
 }
