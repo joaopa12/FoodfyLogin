@@ -169,5 +169,5 @@ module.exports = {
         const EachChef = await Promise.all(chefsPromise)
  
         return res.render("Site/chefs/index", { Chefs: EachChef })
-    }
+    } 
 }

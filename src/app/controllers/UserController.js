@@ -1,7 +1,7 @@
 const User = require('../models/user')
 
 module.exports = {
-    async list(req, res){
+    async index(req, res){
         let results = await User.all()
         const users = results.rows
 
@@ -42,5 +42,6 @@ module.exports = {
         User.delete(id)
 
         return res.redirect('/admin/users')
-    }
+    },
+    
 }

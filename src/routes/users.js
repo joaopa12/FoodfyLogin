@@ -1,19 +1,22 @@
 const express = require('express')
 const routes = express.Router()
 
+
 const UserController = require('../app/controllers/UserController')
+const SessionController = require('../app/controllers/SessionController')
+
 const UserValidator = require('../app/validators/user')
 
-// Rotas de perfil de um usuário logado
-//routes.get('/admin/profile', ProfileController.index) // Mostrar o formulário com dados do usuário logado
-//routes.put('/admin/profile', ProfileController.put)// Editar o usuário logado
+
+// login/logout
+routes.get("/login", SessionController.loginForm)
 
 //User Register
 routes.get('/register', UserController.registerForm)
 routes.post('/register', UserController.post)
 
 // Rotas que o administrador irá acessar para gerenciar usuários
-routes.get('/', UserController.list)
+routes.get('/', UserController.index)
 routes.get("/:id", UserController.show)
 routes.get("/:id/edit", UserController.edit)
 routes.put('/', UserController.put)

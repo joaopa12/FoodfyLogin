@@ -19,4 +19,5 @@ routes.get("/Receitas/:id", SiteController.recipe)
 routes.get("/Resultados", SiteController.results)
 routes.get("/Chefs", SiteController.chefs)
 
+
 module.exports = routes
