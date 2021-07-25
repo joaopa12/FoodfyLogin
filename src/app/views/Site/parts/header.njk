@@ -6,13 +6,6 @@
             <a href="/Receitas">Receitas</a>
             <a href="/Chefs">Chefs</a>
             <a href="/admin/users/login">Logar</a>
-            {% if session.userId %}
-                <div class="logout_button">
-                    <form action="/users/logout" method="POST">
-                        <button>Sair</button>
-                    </form>
-                </div>
-            {% endif %}
         </div>
         <form action="/Resultados" method="GET">
             <input type="text" name="filter" placeholder="Buscar uma receita" value="{{ filter }}">
