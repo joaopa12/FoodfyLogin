@@ -23,9 +23,11 @@ module.exports = {
         const { id } = req.params
 
         let results = await User.find(id)
-        const user = results.rows[0]
+        const userId = results.rows[0]
 
-        return res.render('Admin/user/show.njk',{ user })
+        req.session.userId = userId
+
+        return res.render('Admin/user/show.njk',{ user:userId })
     },
     async post(req,res){
         const userId = await User.create(req.body)
