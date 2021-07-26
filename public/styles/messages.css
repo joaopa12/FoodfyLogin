@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap');
+
 /* validate errors */
 @keyframes hidemessage {
     0%{
@@ -14,6 +16,27 @@
     }
     
 }
+
+@keyframes hidemessagetoUp {
+    0%{
+        opacity:0;
+        transform: translateY(10px);
+        
+    }
+    25%{
+        opacity:1;
+        
+    }
+    90%{
+        opacity:1;
+       
+    }
+    100%{
+        opacity:0;
+    }
+    
+}
+
 .item div .error{
     background-color: #DC4747;
     color: white;
@@ -28,6 +51,24 @@
 }
 
 .messages {
-    display: flex;
-    justify-content: center;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    margin:15px;
+    padding:40px 80px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    color: #FFFFFF;
+    font-size: 16px;
+    animation: hidemessagetoUp 4s ease-out forwards;
+    
+}
+
+.messages.error{
+    background-color: #DC4747;
+}
+
+.messages.sucess{
+    background-color: #01B12A;
 }
