@@ -25,5 +25,9 @@
     justify-content: center;
 
     animation: hidemessage 2s ease-out forwards;
-    
+}
+
+.messages {
+    display: flex;
+    justify-content: center;
 }

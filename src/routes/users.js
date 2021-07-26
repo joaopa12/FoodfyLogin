@@ -13,7 +13,7 @@ routes.get("/login", SessionController.loginForm)
 
 //User Register
 routes.get('/register', UserController.registerForm)
-routes.post('/register', UserController.post)
+routes.post('/register', UserValidator.post, UserController.post)
 
 // Rotas que o administrador irá acessar para gerenciar usuários
 routes.get('/', UserController.index)
