@@ -50,6 +50,8 @@
     animation: hidemessage 2s ease-out forwards;
 }
 
+
+
 .messages {
     position: absolute;
     right: 0;
@@ -63,6 +65,17 @@
     font-size: 16px;
     animation: hidemessagetoUp 4s ease-out forwards;
     
+}
+
+@media (min-width: 1500px){
+    .messages{
+        right: 200px;
+    }
+}
+@media (min-width: 2220px){
+    .messages{
+        right: 650px;
+    }
 }
 
 .messages.error{
