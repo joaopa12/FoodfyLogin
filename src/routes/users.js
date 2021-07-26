@@ -19,7 +19,7 @@ routes.post('/register', UserValidator.post, UserController.post)
 routes.get('/', UserController.index)
 routes.get("/:id", UserController.show)
 routes.get("/:id/edit", UserController.edit)
-routes.put('/', UserController.put)
+routes.put('/', UserValidator.update,UserController.put)
 routes.delete("/", UserController.delete)
 
 //routes.get('/admin/users', UserController.list) // Mostrar a lista de usuários cadastrados
