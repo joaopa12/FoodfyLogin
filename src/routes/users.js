@@ -10,6 +10,7 @@ const UserValidator = require('../app/validators/user')
 
 // login/logout
 routes.get("/login", SessionController.loginForm)
+routes.post("/logout", SessionController.logout)
 
 //User Register
 routes.get('/register', UserController.registerForm)
