@@ -72,3 +72,22 @@ button[type="delete"]{
     border-radius: 4px;
     margin-left: 16px;
 }
+
+.logout_button {
+    position: relative;
+    display: flex;
+    left: 520px;
+}
+.logout_button button{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #111111;
+    color: #FFFFFF;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.logout_button button:hover{
+    color: #999999;
+    transition: 100ms;
+}

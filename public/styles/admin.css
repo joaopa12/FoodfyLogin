@@ -32,6 +32,7 @@ header {
     margin-bottom: 50px;
     display:flex;
     justify-content: center;
+    align-items: center;
 }
 header .logo{
     width: 940px;
@@ -44,6 +45,8 @@ header .logo .linksadmin{
     margin-left: 50px;
 }
 .linksadmin{
+    display: flex;
+    align-items: center;
     font-size: 15px;
     font-weight: bold;
 }
@@ -55,7 +58,7 @@ header .logo .linksadmin{
     color: #999999;
     text-decoration:none;
     text-transform: uppercase;
-    margin-right: 30px;
+    margin-right: 36px;
 }
 
 /* Cards and main index*/

@@ -5,13 +5,13 @@
             <a href="/admin/Receitas">Receitas</a>
             <a href="/admin/Chefs">Chefs</a>
             <a href="/admin/users">Usuários</a>
-            {% if session.userId %}
-                <div class="logout_button">
-                    <form action="/users/logout" method="POST">
-                        <button>Sair</button>
-                    </form>
-                </div>
-            {% endif %}
         </div>
+        {% if session.userId %}
+        <div class="logout_button">
+                <form action="/users/logout" method="POST">
+                     <button>Sair</button>
+                </form>
+        </div>
+         {% endif %}
     </div>
 </header>
