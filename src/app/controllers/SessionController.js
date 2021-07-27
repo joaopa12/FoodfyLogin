@@ -1,4 +1,4 @@
-const { logout } = require("../../../../Modulo-7/src/app/controllers/SessionController")
+const { login } = require("../../../../Modulo-7/src/app/controllers/SessionController")
 
 module.exports = {
     loginForm(req, res){
@@ -6,6 +6,11 @@ module.exports = {
     },
     logout(req,res){
         req.session.destroy()
+        return res.redirect("/admin/users/")
+    },
+    login(req,res){
+        req.session.userId = req.user.id
+
         return res.redirect("/admin/users/")
     }
 }
