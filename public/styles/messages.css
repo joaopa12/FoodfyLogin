@@ -33,16 +33,19 @@
     
 }
 
+.item div{
+    position: relative;
+}
+
 .item div .error{
     background-color: #DC4747;
     color: white;
     padding:5px;
-    width: 455px;
+    width: 100%;
     border-radius: 4px;
     position: absolute;
     display: flex;
     justify-content: center;
-
     animation: hidemessage 2s ease-out forwards;
 }
 
