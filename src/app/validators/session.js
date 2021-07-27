@@ -8,7 +8,7 @@ async function login(req, res, next){
 
      if(!user) return res.render("Admin/session/login.njk",{
          user:req.body,
-         error: "Senha incorreta"
+         error: "Usuário não cadastrado"
      })
 
      const passed = await compare(password, user.password)

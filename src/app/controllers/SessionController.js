@@ -1,4 +1,3 @@
-const { login } = require("../../../../Modulo-7/src/app/controllers/SessionController")
 
 module.exports = {
     loginForm(req, res){

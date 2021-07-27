@@ -2,7 +2,7 @@
 {% block content %}
 <div class="session_content">
     <div class="session_form">
-        <form action="/admin/users" method="post">
+        <form action="/admin/users/login" method="POST">
             <div class="session_header">
                 <p>Iniciar Sessão</p>
             </div>
@@ -10,12 +10,12 @@
                 <div class="item">
                     <p>Email</p>
                     <div>
-                        <input type="text" name="name" value="" placeholder="Digite seu email"></div>
+                        <input type="text" name="email" value="" placeholder="Digite seu email"></div>
                     </div>
                     <div class="item">
                         <p>Senha</p>
                         <div>
-                            <input type="text" name="name" value="" placeholder="Digite sua senha"></div>
+                            <input type="password" name="password" value="" placeholder="Digite sua senha"></div>
                         </div>
                     </div>
                     <div class="session_buttons">
