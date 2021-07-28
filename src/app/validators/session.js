@@ -30,7 +30,7 @@ async function forgot(req, res, next){
     const { email } = req.body
     
     try{
-        let user = await User.findOne({ where: {email} })
+        const user = await User.findOne({ where: { email } })
 
         if (!user) return res.render("Admin/session/forgot-password.njk", {
             user: req.body,
@@ -41,8 +41,6 @@ async function forgot(req, res, next){
     }catch(err){
         console.error(err)
     }
-
-    
 }
 module.exports = {
     login,
