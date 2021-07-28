@@ -592,7 +592,7 @@ button[type="submit"] a{
 }
 
 .session_buttons{
-    margin-top: 20px;
+    margin-top: 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
