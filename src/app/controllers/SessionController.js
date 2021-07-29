@@ -17,7 +17,7 @@ module.exports = {
     forgotForm(req,res){
         return res.render("Admin/session/forgot-password")
     },
-    forgot(req,res){
+    async forgot(req,res){
          const user = req.user
 
         //criação do token
@@ -27,9 +27,12 @@ module.exports = {
         let now = new Date()
         now = now.setHours(now.getHours() + 1)
 
-        await User.update(ser.id, {
-            
+        await User.update(user.id, {
+            reset_token: token,
+            reset_token_expires: now
         })
+
+        
 
         
     }

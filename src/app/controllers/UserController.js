@@ -1,3 +1,4 @@
+const { update } = require('../../../../Modulo-7/src/app/models/Product')
 const user = require('../models/user')
 const User = require('../models/user')
 
@@ -36,8 +37,16 @@ module.exports = {
         
         return res.redirect(`/admin/users/${userId}`)
     },
-    async put(req,res){
-        await User.update(req.body)
+    async update(req,res){
+        const { user } = req
+
+        let { name, email, is_admin } = req.body
+
+        await User.update(user.id, {
+            name,
+            email,
+            is_admin
+        })
 
         return res.redirect('/admin/users')
     },
