@@ -62,6 +62,7 @@
     color: #FFFFFF;
     font-size: 16px;
     animation: hidemessagetoUp 2s ease-out forwards;
+    z-index: 1;
     
 }
 
