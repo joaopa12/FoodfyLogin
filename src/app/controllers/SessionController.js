@@ -52,5 +52,11 @@ module.exports = {
             user:req.body,
             sucess:"Verifique seu Email!"
         })
+    },
+    resetForm(req,res){
+        return res.render("Admin/session/password-reset", { token: req.query.token })
+    },
+    reset(req,res){
+
     }
 }
