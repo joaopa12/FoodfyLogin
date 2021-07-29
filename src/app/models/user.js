@@ -56,24 +56,22 @@ module.exports = {
        async find(id){
            return db.query(`SELECT users.* FROM users WHERE id = $1`, [id])
        },
-       async update(data){
+       async update(id , fields){
         try{
-            const query = `
-            UPDATE users SET
-                name=($1),
-                email=($2),
-                is_admin=($3)
-                WHERE id = $4
+            let query = "UPDATE users SET"
 
-            ` 
-            const values = [
-                data.name,
-                data.email,
-                data.is_admin,
-                data.id
-            ]
+            Object.keys(fields).map((key, index, array) => {
+                if((index + 1) < array.length){
+                    query = `${query} ${key} = '${fields[key]}',`
+                } else {
+                    query = `${query} ${key} = '${fields[key]}'
+                    WHERE id = ${id}
+                    `
+                }
+            })
 
-            await db.query(query, values)
+            await db.query(query)
+            return
          }catch(err){
             console.error(err)
          }
