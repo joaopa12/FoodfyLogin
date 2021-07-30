@@ -39,8 +39,6 @@ module.exports = {
 
         const userId = await User.create(req.body, password)
 
-        req.session.userId = userId
-
         await mailer.sendMail({
             to:req.body.email,
             from: 'no-reply@Foodfy.com',
@@ -52,6 +50,8 @@ module.exports = {
             </p>
             `
         })
+
+        req.session.userId = userId
     
         return res.redirect(`/admin/users/${userId}`)
     },

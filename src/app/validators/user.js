@@ -21,7 +21,7 @@ async function post(req, res, next){
         return res.render('Admin/user/register.njk', fillAllFields)
     }
 
-    let { email, name, password } = req.body
+    let { email, name } = req.body
 
     const user = await User.findOne({
         where:{ email },

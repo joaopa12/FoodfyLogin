@@ -57,6 +57,7 @@ module.exports = {
         return res.render("Admin/session/password-reset", { token: req.query.token })
     },
     reset(req,res){
+        const { email, password, passwordRepeat, token } = req.body
 
     }
 }

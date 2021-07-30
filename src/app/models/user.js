@@ -31,11 +31,14 @@ module.exports = {
               RETURNING id
               ` 
 
+              // hash password 
+              const passwordHash = await hash(password, 10)
+
               const values = [
                   data.name,
                   data.email,
                   data.is_admin,
-                  password
+                  passwordHash
               ]
 
               const results = await db.query(query, values)
