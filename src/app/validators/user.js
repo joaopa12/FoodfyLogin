@@ -46,7 +46,7 @@ async function update(req, res, next){
    
     if(!password) return res.render('Admin/user/show.njk', {
         user:req.body,
-        error:"Coloque sua senha para atualizar seucadastro!"
+        error:"Coloque sua senha para atualizar seu cadastro!"
     })
 
     //password match

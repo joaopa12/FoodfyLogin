@@ -31,7 +31,6 @@ module.exports = {
               RETURNING id
               ` 
 
-              // hash password 
               const passwordHash = await hash(password, 10)
 
               const values = [
