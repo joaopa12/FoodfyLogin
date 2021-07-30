@@ -64,6 +64,19 @@ module.exports = {
         const { email, password, token } = req.body
 
         try{
+            //enviar email com a nova senha!
+            await mailer.sendMail({
+                to:email,
+                from: 'no-reply@Foodfy.com',
+                subject: 'Nova Senha Foodfy',
+                html: `<h2>Nova senha</h2>
+                <p>Senha Atualizada!</p>
+                <p>
+                   A sua nova senha é ${password}
+                </p>
+                `
+            })
+    
             // criar um novo hash de senha
             const newPassword = await hash(password, 10)
 
@@ -74,24 +87,11 @@ module.exports = {
                 reset_token_expires:""
             })
 
-            //enviar email com a nova senha!
-            await mailer.sendMail({
-                to:email,
-                from: 'no-reply@Foodfy.com',
-                subject: 'Cadastrado Foodfy',
-                html: `<h2>Recuperação de Senha</h2>
-                <p>Senha Atualizada!</p>
-                <p>
-                   A sua nova senha é ${password}
-                </p>
-                `
-            })
-    
             // avisa o usuário que ele tem uma nova senha
             return res.render("Admin/session/login.njk",{
                 user:req.body,
                 token,
-                sucess:"Senha Atualizada!"
+                sucess:"Senha atualizada enviada para o Email!"
             })
 
         }catch(err){
