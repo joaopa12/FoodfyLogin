@@ -30,5 +30,5 @@ routes.get("/:id", UserController.show)
 routes.get("/:id/edit", UserController.edit)
 routes.put('/', UserValidator.update,UserController.update)
 routes.delete("/", UserController.delete)
-
+  
 module.exports = routes

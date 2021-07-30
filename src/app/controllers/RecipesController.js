@@ -70,7 +70,7 @@ module.exports = {
 
         return res.render("Admin/recipes/edit", { chefsOptions, recipe, files })
     },
-    async post(req, res) {
+    async post(req, res) {  
         const keys = Object.keys(req.body)
 
         for (key of keys) {
@@ -82,7 +82,7 @@ module.exports = {
             return res.send('Porfavor pelo menos uma imagem!')
         }
 
-        let results = await Recipe.create(req.body)
+        let results = await Recipe.create(req.body, req.session.userId)
         const recipe_id = results.rows[0].id
 
         const filesPromise = req.files.map(file => File.create({ ...file }))

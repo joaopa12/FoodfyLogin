@@ -154,6 +154,7 @@ button[type="submit"],
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
     border-radius: 4px;
+    cursor: pointer;
  
 }
 .content_add{
