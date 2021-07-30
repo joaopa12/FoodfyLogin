@@ -1,5 +1,6 @@
 const User = require('../models/user')
 const mailer = require('../../lib/mailer')
+const { hash } = require('bcryptjs')
 const crypto = require("crypto")
 
 module.exports = {
@@ -8,7 +9,8 @@ module.exports = {
     },
     logout(req,res){
         req.session.destroy()
-        return res.redirect("/admin/users/")
+
+        return res.redirect("/")
     },
     login(req,res){
         req.session.userId = req.user.id
@@ -56,8 +58,45 @@ module.exports = {
     resetForm(req,res){
         return res.render("Admin/session/password-reset", { token: req.query.token })
     },
-    reset(req,res){
-        const { email, password, passwordRepeat, token } = req.body
+    async reset(req,res){
+        const user = req.user
+
+        const { email, password, token } = req.body
+
+        try{
+            // criar um novo hash de senha
+            const newPassword = await hash(password, 10)
+
+            // atualizar o usuário
+            await User.update(user.id,{
+                password:newPassword,
+                reset_token:"",
+                reset_token_expires:""
+            })
+
+            //enviar email com a nova senha!
+            await mailer.sendMail({
+                to:email,
+                from: 'no-reply@Foodfy.com',
+                subject: 'Cadastrado Foodfy',
+                html: `<h2>Recuperação de Senha</h2>
+                <p>Senha Atualizada!</p>
+                <p>
+                   A sua nova senha é ${password}
+                </p>
+                `
+            })
+    
+            // avisa o usuário que ele tem uma nova senha
+            return res.render("Admin/session/login.njk",{
+                user:req.body,
+                token,
+                sucess:"Senha Atualizada!"
+            })
+
+        }catch(err){
+            console.error(err)
+        }
 
     }
 }
