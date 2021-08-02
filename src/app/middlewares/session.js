@@ -49,7 +49,8 @@ async function RecipeOwner(req,res, next){
      const userId = results.rows[0]
     
      console.log(req.session.userId)
-    if(req.session.userId !== recipe.user_id){
+     console.log(req.session.isAdmin)
+    if(req.session.userId !== recipe.user_id && req.session.isAdmin == false){
         return res.render("Admin/user/show.njk", {
             error: "Somente para administradores!",
             user:userId
