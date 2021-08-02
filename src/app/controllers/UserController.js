@@ -33,6 +33,8 @@ module.exports = {
         const userId = results.rows[0]
 
         req.session.userId = userId.id
+        console.log(req.session.userId)
+        console.log(req.session.isAdmin)
 
         return res.render('Admin/user/show.njk', { user: userId })
     },

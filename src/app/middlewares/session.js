@@ -1,4 +1,5 @@
 const Recipe = require('../models/recipe')
+const User = require('../models/user')
 
 function onlyUsers(req,res, next){
     if(!req.session.userId){
@@ -14,9 +15,14 @@ function forAdmin(req,res, next){
     next()
 }
 
-function onlyAdmin(req,res, next){
+async function onlyAdmin(req,res, next){
     if(req.session.isAdmin == false){
+
+        results = await User.find(req.session.userId)
+        const userId = results.rows[0]
+
         return res.render("Admin/user/show.njk", {
+            user:userId,
             error: "Somente para administradores!"
         })
     }
@@ -36,11 +42,17 @@ function isLoggedRedirectToUsers(req, res, next){
 }
 
 async function RecipeOwner(req,res, next){
-    const recipe = await Recipe.find(req.params.id)
+     let results = await Recipe.find(req.params.id)
+     const recipe = results.rows[0]
 
-    if(req.session.userId != recipe[0].user_id){
+     results = await User.find(req.session.userId)
+     const userId = results.rows[0]
+    
+     console.log(req.session.userId)
+    if(req.session.userId !== recipe.user_id){
         return res.render("Admin/user/show.njk", {
-            error: "Somente para administradores!"
+            error: "Somente para administradores!",
+            user:userId
         })
     }
 
