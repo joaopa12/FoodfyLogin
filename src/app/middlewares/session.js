@@ -1,11 +1,3 @@
-function onlyAdmin(req,res, next){
-    if(req.session.is_admin){
-        console.log('Admin')
-        return res.redirect('/admin/users')
-    }
-    next()
-}
-
 function onlyUsers(req,res, next){
     if(!req.session.userId){
         return res.redirect('/admin/users/login')
@@ -13,14 +5,41 @@ function onlyUsers(req,res, next){
     next()
 }
 
+function onlyAdmin(req,res, next){
+    if(!req.session.isAdmin){
+        return res.render("Admin/session/profile", {
+            error: "Somente para administradores!"
+        })
+    }
+    next()
+}
+
+function NotAdmin(req,res, next){
+    if(!req.session.isAdmin){
+        return res.redirect('/admin/users/profile')
+    }
+    next()
+}
+
+
+
 function isLoggedRedirectToUsers(req, res, next){
-    if(req.session.userId) return res.redirect('/admin/users')
+    if(req.session.userId) {
+        if(req.session.isAdmin){   
+            return res.redirect('/admin/users')
+        } else {
+            return res.redirect('/admin/users/profile')
+        }
+    }
 
     next()
 }
 
+
+
 module.exports = {
     onlyUsers,
     isLoggedRedirectToUsers,
-    onlyAdmin
+    onlyAdmin,
+    NotAdmin
 }

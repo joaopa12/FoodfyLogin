@@ -35,7 +35,7 @@ CREATE TABLE "users" (
   "password" text NOT NULL,
   "reset_token" text,
   "reset_token_expires" text,
-  "is_admin" boolean,
+  "is_admin" boolean DEFAULT(false),
   "created_at" timestamp DEFAULT(now()),
   "updated_at" timestamp DEFAULT(now())
 );

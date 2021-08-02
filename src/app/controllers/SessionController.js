@@ -16,7 +16,6 @@ module.exports = {
         req.session.userId = req.user.id
         req.session.isAdmin = req.user.is_admin
 
-
         return res.redirect("/admin/users/")
     },
     forgotForm(req,res){

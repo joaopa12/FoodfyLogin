@@ -7,11 +7,13 @@ function createPassword() {
 }
 
 module.exports = {
-    async index(req, res) {
+    async list(req, res) {
         let results = await User.all()
         const users = results.rows
 
-        const user = req.session.userId
+        const user = req.session.userId.id
+        console.log(req.session.userId)
+        console.log(req.session.isAdmin)
 
         return res.render("Admin/user/index.njk", { users, user })
     },
