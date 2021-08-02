@@ -50,6 +50,10 @@ header .logo .linksadmin{
     font-size: 15px;
     font-weight: bold;
 }
+
+.linksadmin a.active_page_admin.home_button{
+    color: #fbdfdb;
+}
 .linksadmin a.active_page_admin{
     color: #FFFFFF;
 }
