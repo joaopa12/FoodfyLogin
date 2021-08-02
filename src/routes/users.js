@@ -25,13 +25,13 @@ routes.get("/profile",onlyUsers,UserController.show)
 routes.put("/profile", UserController.update)
 
 //User Register
-routes.get('/register', UserController.registerForm)
-routes.post('/register', UserValidator.post, UserController.post)
+routes.get('/register',onlyAdmin, UserController.registerForm)
+routes.post('/register', onlyAdmin,UserValidator.post, UserController.post)
 
 // Rotas que o administrador irá acessar para gerenciar usuários
-routes.get('/' ,forAdmin, UserController.list)
-routes.get("/:id/edit", UserController.edit)
-routes.put('/', UserValidator.update,UserController.update)
-routes.delete("/", UserController.delete)
+routes.get('/' , onlyUsers, forAdmin, UserController.list)
+routes.get("/:id/edit", onlyUsers, onlyAdmin ,UserController.edit)
+routes.put('/', onlyUsers, UserValidator.update,UserController.update)
+routes.delete("/", onlyUsers, onlyAdmin, UserController.delete)
   
-module.exports = routes
+module.exports = routes 

@@ -1,3 +1,5 @@
+const Recipe = require('../models/recipe')
+
 function onlyUsers(req,res, next){
     if(!req.session.userId){
         return res.redirect('/admin/users/login')
@@ -33,11 +35,22 @@ function isLoggedRedirectToUsers(req, res, next){
     next()
 }
 
+async function RecipeOwner(req,res, next){
+    const recipe = await Recipe.find(req.params.id)
 
+    if(req.session.userId != recipe[0].user_id){
+        return res.render("Admin/user/show.njk", {
+            error: "Somente para administradores!"
+        })
+    }
+
+    next()
+}
 
 module.exports = {
     onlyUsers,
     isLoggedRedirectToUsers,
     onlyAdmin,
-    forAdmin
+    forAdmin,
+    RecipeOwner
 }
