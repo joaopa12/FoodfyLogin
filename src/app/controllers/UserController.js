@@ -11,7 +11,9 @@ module.exports = {
         let results = await User.all()
         const users = results.rows
 
-        return res.render("Admin/user/index.njk", { users })
+        const user = req.session.userId
+
+        return res.render("Admin/user/index.njk", { users, user })
     },
     async edit(req, res) {
         const { id } = req.params

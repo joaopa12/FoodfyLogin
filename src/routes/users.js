@@ -1,6 +1,6 @@
 const express = require('express')
 const routes = express.Router()
-const { onlyUsers, isLoggedRedirectToUsers } = require('../app/middlewares/session')
+const { onlyUsers, isLoggedRedirectToUsers,onlyAdmin } = require('../app/middlewares/session')
 
 const UserController = require('../app/controllers/UserController')
 const SessionController = require('../app/controllers/SessionController')
@@ -25,7 +25,7 @@ routes.get('/register', UserController.registerForm)
 routes.post('/register', UserValidator.post, UserController.post)
 
 // Rotas que o administrador irá acessar para gerenciar usuários
-routes.get('/', UserController.index)
+routes.get('/',onlyAdmin, UserController.index)
 routes.get("/:id", UserController.show)
 routes.get("/:id/edit", UserController.edit)
 routes.put('/', UserValidator.update,UserController.update)
