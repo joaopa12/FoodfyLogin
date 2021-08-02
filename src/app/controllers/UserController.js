@@ -27,9 +27,7 @@ module.exports = {
         return res.render("Admin/user/register.njk")
     },
     async show(req, res) {
-        const { id } = req.params
-
-        let results = await User.find(id)
+        let results = await User.find(req.session.userId)
         const userId = results.rows[0]
 
         req.session.userId = userId

@@ -1,5 +1,5 @@
 function onlyAdmin(req,res, next){
-    if(req.session.userId.is_admin){
+    if(req.session.is_admin){
         console.log('Admin')
         return res.redirect('/admin/users')
     }
@@ -8,7 +8,7 @@ function onlyAdmin(req,res, next){
 
 function onlyUsers(req,res, next){
     if(!req.session.userId){
-        return res.redirect('/admin/users')
+        return res.redirect('/admin/users/login')
     }
     next()
 }
