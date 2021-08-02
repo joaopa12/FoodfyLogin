@@ -67,3 +67,8 @@
 .messages.sucess{
     background-color: #01B12A;
 }
+
+/* inputs */
+.fields .item.error div input{
+    border: 1px solid #FF3131;
+}
