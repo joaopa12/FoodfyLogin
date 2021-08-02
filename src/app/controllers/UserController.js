@@ -32,7 +32,7 @@ module.exports = {
         let results = await User.find(req.session.userId)
         const userId = results.rows[0]
 
-        req.session.userId = userId
+        req.session.userId = userId.id
 
         return res.render('Admin/user/show.njk', { user: userId })
     },
