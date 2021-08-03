@@ -12,8 +12,6 @@ module.exports = {
         const users = results.rows
 
         const user = req.session.userId.id
-        console.log(req.session.userId)
-        console.log(req.session.isAdmin)
 
         return res.render("Admin/user/index.njk", { users, user })
     },
@@ -33,9 +31,7 @@ module.exports = {
         const userId = results.rows[0]
 
         req.session.userId = userId.id
-        console.log(req.session.userId)
-        console.log(req.session.isAdmin)
-
+    
         return res.render('Admin/user/show.njk', { user: userId })
     },
     async post(req, res) {

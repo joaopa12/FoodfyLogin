@@ -40,8 +40,7 @@ module.exports = {
     },
     about(req, res) {
         return res.render("Site/home/sobre")
-    },
-    
+    },  
     async recipes(req, res) {
         let { filter, page, limit } = req.query
 
