@@ -1,5 +1,4 @@
 const Recipe = require('../models/recipe')
-const User = require('../models/user')
 
 function onlyUsers(req,res, next){
     if(!req.session.userId){
@@ -11,7 +10,6 @@ function onlyUsers(req,res, next){
 function forAdmin(req,res, next){
     if(req.session.isAdmin == false){
 
-        console.log('1')
         return res.redirect('/admin/users/profile')
         
     }
@@ -19,9 +17,11 @@ function forAdmin(req,res, next){
 }
 
 async function onlyAdmin(req,res, next){
-    if(req.session.isAdmin == false){
-        req.session.error = "Somente para administradores!"
+    if(!req.session.isAdmin){
 
+        req.session.error = "Somente para administradores!"
+        console.log('passou')
+        
         return res.redirect('/admin/users/profile')
     }
     next()

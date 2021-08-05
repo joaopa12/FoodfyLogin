@@ -12,8 +12,10 @@ module.exports = {
         const users = results.rows
 
         const user = req.session.userId.id
+        
+        const error = req.session.error
 
-        return res.render("Admin/user/index.njk", { users, user })
+        return res.render("Admin/user/index.njk", { users, user, error })
     },
     async edit(req, res) {
         const { id } = req.params
@@ -21,7 +23,9 @@ module.exports = {
         let results = await User.find(id)
         const user = results.rows[0]
 
-        return res.render('Admin/user/edit.njk', { user })
+        const error = req.session.error
+
+        return res.render('Admin/user/edit.njk', { user, error })
     },
     registerForm(req, res) {
         return res.render("Admin/user/register.njk")
@@ -31,8 +35,11 @@ module.exports = {
         const userId = results.rows[0]
 
         req.session.userId = userId.id
+
+        const error = req.session.error
+        req.session.error = "";
     
-        return res.render('Admin/user/show.njk', { user: userId })
+        return res.render('Admin/user/show.njk', { user: userId, error })
     },
     async post(req, res) {
         const password = createPassword()
@@ -74,8 +81,5 @@ module.exports = {
         User.delete(id)
 
         return res.redirect('/admin/users')
-    },
-    // Rotas de perfil de um usuário logado
-    //routes.get('/admin/profile', ProfileController.index) // Mostrar o formulário com dados do usuário logado
-    //routes.put('/admin/profile', ProfileController.put)// Editar o usuário logado
+    }
 }
